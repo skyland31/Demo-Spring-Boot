@@ -7,19 +7,26 @@ import org.springframework.stereotype.Service;
 @Slf4j
 public class FuzzBuzzService {
 
-    public String getFuzzBuzz(int n){
-        String result="";
-        log.info(""+n);
-        if( n%3 == 0 && n%5 == 0){
-            result = "FuzzBuzz";
-        }else if ( n%3 == 0){
-            result = "FuzzBuzz";
-        }else if ( n%5 == 0){
-            result = "Buzz";
+    public String getFuzzBuzz(Integer input){
+        log.info(""+input);
+        if( checkIsFuzzBuzz(input) ){
+            return "FuzzBuzz";
+        }else if ( checkIsFuzz(input) ){
+            return "Fuzz";
+        }else if ( checkIsBuzz(input) ){
+            return "Buzz";
         }else {
-            result = String.valueOf(n);
+            return String.valueOf(input);
         }
-        return result;
+    }
+    private boolean checkIsFuzzBuzz(Integer input){
+        return  input%3 == 0 && input%5 == 0;
+    }
+    private boolean checkIsFuzz(Integer input){
+        return  input%3 == 0;
+    }
+    private boolean checkIsBuzz(Integer input){
+        return  input%5 == 0;
     }
 
 }

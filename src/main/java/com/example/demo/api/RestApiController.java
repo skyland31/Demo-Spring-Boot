@@ -30,18 +30,21 @@ public class RestApiController {
         return UserEntities;
     }
 
-    @GetMapping("/sayHi2/{number}")
+    @GetMapping("/{number}")
     public String sayHi2(@PathVariable String number){
         try{
             int n = Integer.parseInt(number);
-            if (n<=0 || n >= 10000){
+            if (checkInputNotLessThanZeroAndNotGreaterThanThousand(n)){
                 return "Invalid integer";
-            }else {
-                return fuzzBuzzService.getFuzzBuzz(n);
             }
+            return fuzzBuzzService.getFuzzBuzz(n);
         }catch (Exception ex){
             ex.printStackTrace();
             return "Invalid integer";
         }
+    }
+
+    private boolean checkInputNotLessThanZeroAndNotGreaterThanThousand(Integer input){
+        return input <= 0 || input >= 10000;
     }
 }

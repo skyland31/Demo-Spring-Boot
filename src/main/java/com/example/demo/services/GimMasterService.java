@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
-@Service
+@Service("gimMasterServiceHibernate")
 @RequiredArgsConstructor
 public class GimMasterService {
     private final GimHeaderRepository headerRepository;

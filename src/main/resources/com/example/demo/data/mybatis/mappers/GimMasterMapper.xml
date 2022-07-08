@@ -3,6 +3,6 @@
 <mapper namespace="com.example.demo.data.mybatis.mappers.GimMasterMapper">
 
     <select id="findAllGimHeaders" resultType="com.example.demo.data.mybatis.models.GimHeaderModel">
-        SELECT * FROM TB_M_GIM_H
+        SELECT * FROM TB_M_GIM_H ORDER BY GIM_TYPE
     </select>
 </mapper>

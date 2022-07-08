@@ -113,7 +113,7 @@ const DXCUtils = (function ($) {
                 return moment(stringDate, format).toDate().getTime();
             }
         },
-        comfirmModal: function (confirmMessage, params, approveCallback) {
+        confirmModal: function (confirmMessage, params, approveCallback) {
             confirmMessage = confirmMessage.replaceAll('"', '');
             const messageCode = confirmMessage.substring(0, confirmMessage.indexOf(":"));
             $('#confirmingModal').children(".header").children("span").text('');
@@ -240,7 +240,7 @@ const DXCUtils = (function ($) {
             }
         },
         callAPI: async (uri, httpMethod, postData) => {
-            const url = `/mats${uri}`;
+            const url = `/demo${uri}`;
             const options = {
                 "method": httpMethod,
                 headers: {
